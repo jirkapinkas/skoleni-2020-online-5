@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +11,7 @@ import java.util.stream.IntStream;
 @RestController
 public class EmailController {
 
+    @Async
     @GetMapping("/sendEmails") // POZOR! Tady by melo byt @PostMapping!!!
     public void sendEmails() {
         IntStream.range(0, 100)
