@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.ItemDto;
+import com.example.demo.entity.Item;
+import com.example.demo.repository.ItemRepository;
 import com.example.demo.service.ItemService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,10 +15,17 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/item")
+//@RequiredArgsConstructor
 public class ItemController {
 
-    @Autowired
-    private ItemService itemService;
+    private final ItemService itemService;
+
+    private final ItemRepository itemRepository;
+
+    public ItemController(ItemService itemService, ItemRepository itemRepository) {
+        this.itemService = itemService;
+        this.itemRepository = itemRepository;
+    }
 
     // http://localhost:8080/item
     @GetMapping
