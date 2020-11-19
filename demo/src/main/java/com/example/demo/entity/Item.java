@@ -9,11 +9,11 @@ import java.util.List;
 //@Setter
 @Entity
 //@Table(name = "item") // To zde byt nemusi!!!
-//@NamedEntityGraph(
-//        name = Item.GRAPH_CATEGORY,
-//        attributeNodes = {
-//                @NamedAttributeNode(value = "category")
-//        })
+@NamedEntityGraph(
+        name = Item.GRAPH_CATEGORY,
+        attributeNodes = {
+                @NamedAttributeNode(value = "category")
+        })
 public class Item {
 
     public static final String GRAPH_CATEGORY = "graph.Item.category";

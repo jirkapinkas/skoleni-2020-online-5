@@ -26,13 +26,13 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
 //    Optional<Item> findByIdFetchCategory(int id);
 
 
-//    @EntityGraph(Item.GRAPH_CATEGORY)
-//    @Override
-//    List<Item> findAll(Sort sort);
-//
-//    @EntityGraph(Item.GRAPH_CATEGORY)
-//    @Override
-//    Optional<Item> findById(Integer integer);
+    @EntityGraph(Item.GRAPH_CATEGORY)
+    @Override
+    List<Item> findAll(Sort sort);
+
+    @EntityGraph(Item.GRAPH_CATEGORY)
+    @Override
+    Optional<Item> findById(Integer integer);
 
 
     // 1. operace, ktere delaji neco na zaklade hlavicky metody
